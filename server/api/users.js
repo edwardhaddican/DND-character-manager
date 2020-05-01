@@ -43,6 +43,8 @@ router.get('/:id', isUserMiddleware, async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     await User.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
       // salt: {},

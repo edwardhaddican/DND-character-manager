@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {auth} from '../store'
+import {signUp} from '../store'
 import Header from './Header'
 
 const SignUpPage = props => {
@@ -15,13 +15,13 @@ const SignUpPage = props => {
           <label htmlFor="firstname">
             <small>First Name</small>
           </label>
-          <input className="uk-input" name="firstname" type="text" />
+          <input className="uk-input" name="firstName" type="text" />
         </div>
         <div>
           <label htmlFor="lastname">
             <small>Last Name</small>
           </label>
-          <input className="uk-input" name="lastname" type="text" />
+          <input className="uk-input" name="lastName" type="text" />
         </div>
         <div>
           <label htmlFor="email">
@@ -58,10 +58,11 @@ const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      const formName = evt.target.name
+      const firstName = evt.target.firstName.value
+      const lastName = evt.target.lastName.value
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      dispatch(signUp(email, password, firstName, lastName))
     }
   }
 }
