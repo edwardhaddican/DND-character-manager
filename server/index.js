@@ -41,12 +41,6 @@ passport.deserializeUser(async (id, done) => {
 })
 
 const createApp = () => {
-  app.use((req, res) => {
-    if (!req.secure) {
-      res.redirect("https://" + req.headers.host + req.url);
-    }
-  });
-
   // logging middleware
   app.use(morgan('dev'))
 
@@ -86,6 +80,13 @@ const createApp = () => {
       next()
     }
   })
+
+  app.use((req, res) => {
+    if (!req.secure) {
+      console.log('redirecting to https')
+      res.redirect("https://" + req.headers.host + req.url);
+    }
+  });
 
   // sends index.html
   app.use('*', (req, res) => {
