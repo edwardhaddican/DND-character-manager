@@ -6,7 +6,7 @@ const session = require('express-session')
 const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')
-const sessionStore = new SequelizeStore({db})
+const sessionStore = new SequelizeStore({ db })
 const PORT = process.env.PORT || 8080
 const app = express()
 const socketio = require('socket.io')
@@ -41,12 +41,18 @@ passport.deserializeUser(async (id, done) => {
 })
 
 const createApp = () => {
+  app.use((req, res) => {
+    if (!req.secure) {
+      res.redirect("https://" + req.headers.host + req.url);
+    }
+  });
+
   // logging middleware
   app.use(morgan('dev'))
 
   // body parsing middleware
   app.use(express.json())
-  app.use(express.urlencoded({extended: true}))
+  app.use(express.urlencoded({ extended: true }))
 
   // compression middleware
   app.use(compression())
