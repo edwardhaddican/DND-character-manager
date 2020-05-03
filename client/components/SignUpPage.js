@@ -10,32 +10,32 @@ const SignUpPage = props => {
     <div>
       <Header />
 
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
+      <form className="uk-flex uk-flex-column uk-width-2-3 uk-margin-auto" onSubmit={handleSubmit} name={name}>
+        <div className='uk-margin-small-left'>
           <label htmlFor="firstname">
             <small>First Name</small>
           </label>
           <input className="uk-input" name="firstName" type="text" />
         </div>
-        <div>
+        <div className='uk-margin-small-left'>
           <label htmlFor="lastname">
             <small>Last Name</small>
           </label>
           <input className="uk-input" name="lastName" type="text" />
         </div>
-        <div>
+        <div className='uk-margin-small-left'>
           <label htmlFor="email">
             <small>Email</small>
           </label>
           <input className="uk-input" name="email" type="text" />
         </div>
-        <div>
+        <div className='uk-margin-small-left'>
           <label htmlFor="password">
             <small>Password</small>
           </label>
           <input className="uk-input" name="password" type="password" />
         </div>
-        <div>
+        <div className='uk-margin-small-left'>
           <button className="uk-button uk-button-primary" type="submit">
             {displayName}
           </button>

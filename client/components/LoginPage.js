@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import {auth} from '../store'
+import {login} from '../store'
 import Header from './Header'
+import {Link} from 'react-router-dom'
 
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
@@ -10,26 +11,29 @@ const AuthForm = props => {
   return (
     <div>
       <Header />
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <h1>Email address</h1>
+      <form className="uk-flex uk-flex-column uk-width-2-3 uk-margin-auto" onSubmit={handleSubmit} name={name}>
+        <div className='uk-margin-small-left'>
           <label htmlFor="email">
             <small>Email</small>
           </label>
-          <input name="email" type="text" />
+          <input className='uk-input' name="email" type="text" />
         </div>
-        <div>
+        <div className='uk-margin-small-left'>
           <label htmlFor="password">
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <input className='uk-input' name="password" type="password" />
         </div>
-        <div>
-          <button type="submit">{displayName}</button>
+        <div className='uk-margin-small-left'>
+          <button className="uk-button uk-button-primary" type="submit">{displayName}</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <a href="/auth/google">{displayName} with Google</a>
+      <div className="uk-flex uk-flex-column uk-width-2-3 uk-margin-auto">
+      <Link className='uk-margin-small-left' to="/signup"> Sign Up</Link>
+      <a className='uk-margin-small-left' href="/auth/google">{displayName} with Google</a>
+      </div>
+
     </div>
   )
 }
@@ -42,28 +46,18 @@ const mapLogin = state => {
   }
 }
 
-const mapSignup = state => {
-  return {
-    name: 'signup',
-    displayName: 'Sign Up',
-    error: state.user.error
-  }
-}
-
 const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      dispatch(login(email, password))
     }
   }
 }
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+export default connect(mapLogin, mapDispatch)(AuthForm)
 
 /**
  * PROP TYPES

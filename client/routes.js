@@ -1,10 +1,9 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {withRouter, Route, Switch} from 'react-router-dom'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter, Route, Switch, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, UserHome, Homepage, SignUpPage} from './components'
-import {me} from './store'
-import {Navbar} from './components'
+import { UserHome, LoginPage, SignUpPage, Navbar } from './components'
+import { me } from './store'
 
 /**
  * COMPONENT
@@ -15,27 +14,29 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const { isLoggedIn } = this.props
 
-    return (
-      <Switch>
-        {/* Routes placed here are available to all visitors */}
-        {/* <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} /> */}
-        <Route path="/homepage" component={Homepage} />
-        <Route path="/signuppage" component={SignUpPage} />
+    console.log(isLoggedIn)
 
-        {isLoggedIn && (
+    if (!isLoggedIn) {
+      return (
+        <Switch>
+          <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignUpPage} />
+          <Redirect to="/login" />
+        </Switch>
+      )
+    } else if (isLoggedIn) {
+      return (
+        <div>
+          <Navbar />
+
           <Switch>
-            {/* Routes placed here are only available after logging in */}
-            <Navbar />
             <Route path="/home" component={UserHome} />
           </Switch>
-        )}
-        {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
-      </Switch>
-    )
+        </div>
+      )
+    }
   }
 }
 

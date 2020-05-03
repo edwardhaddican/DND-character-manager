@@ -22,13 +22,13 @@ async function seed() {
     })
   ])
 
-  const characters5th = await Promise.all([Character5thEdit.create({})])
+  // const characters5th = await Promise.all([Character5thEdit.create({})])
 
-  const charactersWG = await Promise.all([CharacterWG.create({})])
+  // const charactersWG = await Promise.all([CharacterWG.create({})])
 
   console.log(`seeded ${users.length} users`)
-  console.log(`seeded ${characters5th.length} users`)
-  console.log(`seeded ${charactersWG.length} users`)
+  // console.log(`seeded ${characters5th.length} users`)
+  // console.log(`seeded ${charactersWG.length} users`)
   console.log(`seeded successfully`)
 }
 
