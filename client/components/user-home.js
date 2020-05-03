@@ -7,8 +7,6 @@ import CharacterCard from './CharacterCard'
  * COMPONENT
  */
 export const UserHome = props => {
-  const { email } = props
-
   return (
 
     <div>
