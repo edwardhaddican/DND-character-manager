@@ -4,12 +4,12 @@
   "description": "Gaming App",
   "icons": [
     {
-      "src": "../public/192x192.jpg",
+      "src": "./192x192.jpg",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "../public/512x512.jpeg",
+      "src": "./512x512.jpeg",
       "type": "image/png",
       "sizes": "512x512"
     }
