@@ -33,6 +33,7 @@ class Routes extends Component {
 
           <Switch>
             <Route path="/home" component={UserHome} />
+            <Redirect to="/home" />
           </Switch>
         </div>
       )

@@ -1,17 +1,37 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import CharacterCard from './CharacterCard'
 
 /**
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email} = props
+  const { email } = props
 
   return (
+
     <div>
-      <h3>Welcome, {email}</h3>
+      <CharacterCard character={{
+        name: 'Akroc',
+        gameName: 'Dwarven Game',
+        system: "DND 5th Edit",
+        img: '/defaultCharacterImg.jpg',
+        lvl: 5,
+        class: "Paladin"
+      }} />
+
+      <CharacterCard character={{
+        name: 'Grumble',
+        gameName: 'Ork Game',
+        system: "W and G",
+        img: 'https://wh40k.lexicanum.com/mediawiki/images/thumb/a/ab/Bigmek-tellyportblasta.png/350px-Bigmek-tellyportblasta.png',
+        lvl: 3,
+        class: "Mech"
+      }} />
+
     </div>
+
   )
 }
 

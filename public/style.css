@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  background-color: #DEF4C6;
 }
 
 a {
@@ -22,3 +23,15 @@ form div {
 
 /* login Page */
 
+/* Home Page post login */
+
+.avatar {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.characterCard {
+  background-color: #f5fbed !important;
+}
