@@ -7,7 +7,7 @@ const SignUpPage = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div>
+    <div className="generalContainer">
       <Header />
 
       <form className="uk-flex uk-flex-column uk-width-2-3 uk-margin-auto" onSubmit={handleSubmit} name={name}>

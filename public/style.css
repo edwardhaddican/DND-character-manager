@@ -13,7 +13,14 @@ label {
 
 nav a {
   display: inline-block;
-  margin: 1em;
+  margin: .75em;
+  color: #f5fbed;
+}
+
+
+
+nav {
+  background-color: #1B512D;
 }
 
 form div {
@@ -34,4 +41,9 @@ form div {
 
 .characterCard {
   background-color: #f5fbed !important;
+}
+
+.generalContainer {
+  min-height: 100vh;
+  padding: 1.5rem;
 }

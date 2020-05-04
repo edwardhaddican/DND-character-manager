@@ -9,7 +9,7 @@ import CharacterCard from './CharacterCard'
 export const UserHome = props => {
   return (
 
-    <div>
+    <div className="generalContainer">
       <CharacterCard character={{
         name: 'Akroc',
         gameName: 'Dwarven Game',
