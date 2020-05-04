@@ -13,11 +13,9 @@ label {
 
 nav a {
   display: inline-block;
-  margin: .75em;
+  margin: .65em;
   color: #f5fbed;
 }
-
-
 
 nav {
   background-color: #1B512D;
